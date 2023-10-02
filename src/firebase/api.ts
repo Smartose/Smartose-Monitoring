@@ -1,9 +1,7 @@
 // src/firebase/api.ts
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { app } from '../config/firebaseConfig';
-import { useRouter } from 'next/router';
 
-const router = useRouter();
 const db = getFirestore(app);
 
 const sendFormDataToServer = async (formData: FormData) => {
@@ -20,8 +18,6 @@ const sendFormDataToServer = async (formData: FormData) => {
 
     if (response.ok) {
       console.log("Form data sent successfully!");
-      // Redirect to the dashboard
-      router.push("/dashboard");
     } else {
       console.error("Failed to send form data:", response.statusText);
     }
@@ -30,4 +26,16 @@ const sendFormDataToServer = async (formData: FormData) => {
   }
 };
 
-export { db, sendFormDataToServer };
+const sendFeedbackToServer = async (feedback: string) => {
+  try {
+    const feedbackCollection = collection(db, 'feedback');
+    const feedbackData = { feedback };
+
+    await addDoc(feedbackCollection, feedbackData);
+    console.log("Feedback submitted successfully!");
+  } catch (error) {
+    console.error("Error submitting feedback:", error);
+  }
+};
+
+export { db, sendFormDataToServer, sendFeedbackToServer };

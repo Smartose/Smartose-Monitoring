@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import "./components.css";
+import FAQ from "../components/FAQ";
+import Team from "../components/Team";
+import ContactUs from "../components/Contact";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../components/Navbar"; // Import the Navbar component
 import { useRouter } from "next/router";
@@ -14,6 +18,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 const Login: React.FC = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -66,7 +71,7 @@ const Login: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-blue-500 to-purple-500 text-white font-montserrat">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-500 to-purple-500 text-white font-montserrat">
         <div className="mt-0 mb-2 text-center">
@@ -97,8 +102,24 @@ const Login: React.FC = () => {
           />
         </div>
       </div>
+
+      {/* Gradient divider */}
+      <div className="h-20 bg-gradient-to-b from-purple-500 to-purple-500" />
+
+      {/* Team section */}
+      <div className="bg-gradient-to-b from-purple-500 to-blue-500">
+        <Team />
+      </div>
+
+      {/* ContactUs */}
+      <ContactUs />
     </div>
   );
 };
 
 export default Login;
+
+
+
+
+

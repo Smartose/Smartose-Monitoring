@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Image from 'next/image';
+import logo from "../images/logo.png"; // Adjust the path based on your project structure
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLoginClick = () => {
-    router.push('/login');
+    router.push("/login");
   };
 
   const handleFiturClick = () => {
-    router.push('/fitur');
+    router.push("/fitur");
   };
 
   const toggleDropdown = () => {
@@ -21,7 +23,9 @@ const Navbar: React.FC = () => {
     <nav className="bg-gradient-to-r from-indigo-900 to-blue-700 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white">
-          <span className="font-bold text-2xl sm:text-3xl lg:text-4xl">Smartose</span>
+          <span className="font-bold text-2xl sm:text-3xl lg:text-4xl">
+            Smartose
+          </span>
         </div>
         <div className="flex items-center space-x-4 lg:space-x-6">
           <button
@@ -77,8 +81,15 @@ const Navbar: React.FC = () => {
             )}
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gray-300"></div>
-            <span className="text-white hidden lg:inline">Fawwaz</span>
+            <div className="w-8 h-8 rounded-full bg-gray-300 overflow-hidden">
+              <Image
+                src={logo}
+                alt="Smartose"
+                width={120}
+                height={120}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

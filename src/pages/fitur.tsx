@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from '../components/NewsCard';
 import Navbar from '../components/Navbar';
+import Jumbotron from '../components/Jumbotron';
 import 'tailwindcss/tailwind.css';
 
 interface NewsItem {
@@ -33,7 +34,6 @@ const Fitur: React.FC = () => {
     .filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
     .slice(0, 6);  // Limit to the first 6 items
 
-
   return (
     <div>
       <Navbar />
@@ -52,6 +52,7 @@ const Fitur: React.FC = () => {
             <NewsCard key={item.id} {...item} />
           ))}
         </div>
+        <Jumbotron />
       </div>
     </div>
   );
