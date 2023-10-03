@@ -61,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         </h1>
         <div className="flex items-center space-x-2">
           {auth.currentUser && auth.currentUser.photoURL ? (
-            <Image
+            <img
               src={auth.currentUser.photoURL}
               alt="Profile"
               className="w-8 h-8 rounded-full"

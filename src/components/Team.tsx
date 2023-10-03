@@ -98,7 +98,7 @@ const Team: React.FC = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <div className="h-40 overflow-hidden">
-              <Image
+              <img
                 src={developer.image}
                 alt={developer.name}
                 className="w-full h-80 object-cover"
