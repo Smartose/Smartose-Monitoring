@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import "./components.css";
+import Image from "next/image";
 import ReactTypingEffect from "react-typing-effect";
 
 const typingDelay = 20;
@@ -97,7 +98,7 @@ const Team: React.FC = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <div className="h-40 overflow-hidden">
-              <img
+              <Image
                 src={developer.image}
                 alt={developer.name}
                 className="w-full h-80 object-cover"
