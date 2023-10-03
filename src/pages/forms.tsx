@@ -63,7 +63,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ userUID }) => {
   useEffect(() => {
     // Memeriksa apakah pengguna sudah login saat komponen dimuat
     checkIfUserLoggedIn();
-  }, []);
+  }, [checkIfUserLoggedIn]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

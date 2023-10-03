@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { useRouter } from "next/router";
 import { app } from "../config/firebaseConfig";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartBar,
@@ -60,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         </h1>
         <div className="flex items-center space-x-2">
           {auth.currentUser && auth.currentUser.photoURL ? (
-            <img
+            <Image
               src={auth.currentUser.photoURL}
               alt="Profile"
               className="w-8 h-8 rounded-full"
